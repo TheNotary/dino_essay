@@ -4,34 +4,129 @@ Dino's are very big, tall beings.
 
 
 
-
-1)  Saving/ Record making
-
-$  git init
-
-$  git add .
-$  git commit -m "this is how to save"
-
-
-2)  Observation
-
-$  git status
-$  git log
-$  git diff HEAD --color
+A.  Entry Level Git Commands
 
 
 
-3)  Remote Commands
+  1)  Saving/ Record making
 
-$  git clone https://github.com/TheNotary/webAudioApiForDesigners.git
+  $  git init
 
-# initialize a place to upload stuff if you want to share it
-$  git remote add origin git@github.com:TheNotary/dino_essay.git
-$  git push -u origin master
+  $  git add .
+  $  git commit -m "this is how to save"
 
 
-$  git push
-$  git pull
+  2)  Observation
+
+  $  git status
+  $  git log
+  $  git diff HEAD --color
+  $  git diff commit1 commit2 --color
+
+
+
+  3)  Remote Commands
+
+  $  git clone https://github.com/TheNotary/webAudioApiForDesigners.git
+
+  # initialize a place to upload stuff if you want to share it
+  $  git remote add origin git@github.com:TheNotary/dino_essay.git
+  $  git push -u origin master
+
+
+  $  git push
+  $  git pull
+
+
+
+B.  Intermediate Level Git Commands
+
+  1)  Branch Creation
+  
+  # Show branches, multiple people can work on different branches
+  # by default, your repo starts with a single branch named 'master'
+  $  git branch
+  
+  # Create a new branch, perhaps you want a modified variation of what you originally intended?
+  $  git checkout -u branch-name
+  
+  # Switch to another branch
+  $  git checkout branch-name
+  
+  # merge a divergent branch back into the master branch if you completed a 'feature' that's ready to be merged into to what will be the final project
+  $  git checkout master
+  $  git merge branch-name
+  
+  # delete a branch after it's been merged into master and is now just being an annoance since it will fall out of date as master branch incurs more commits
+  $  git branch -d branch-name
+  
+  
+  2)  Branch Visualization
+  
+  #  the alias for this command should be `glg` pronounced "glug(glug glug)"
+  $  git log --branches --tags --graph --online --decorate   
+
+
+
+C.  Advanced Level Git Commands
+
+  1)  Ammend your last commit
+  
+  #  Sometimes, I make a commit, and then I remember "oh yeah, clean up the 
+  #  white space and delete lines, etc, so it all looks pretty!  Fun!"
+  #  So, after a make these touchups, I commit it in addition to the last commit I made
+  #  But be warned!  If you ammend a commit AFTER you've already pushed the commit upstream
+  #  to origin, this will create an absolute mess!  
+  
+  $  git commit --amend
+  
+  
+  2)  Tags, use tags to create direct downloads for deploying to end users
+  
+  $  git tag -a v1.0 -m "Version One: There shall be no escape!"
+  $  git push origin --tags
+  
+  
+  
+  
+
+
+D.  Advanced, Elaborate, Wordy Tuts
+  
+  # Set up a private git server if you need to push your commits to a machine, but don't want to expose your work to the public just yet.  
+  http://www.dreamincode.net/forums/blog/1662/entry-3850-private-secret-git-servers-for-your-source-code/
+  
+  # Rarely, this should be used when merging in someone elses slopy work into your repo
+  http://www.dreamincode.net/forums/blog/1662/entry-4446-git-basic-intermediate-manipulate-and-tidy-up-your-commit-history-git-squash/
+
+  # Use git commit tags and setup direct downloads for your users
+  http://www.dreamincode.net/forums/blog/1662/entry-3871-git-setting-up-versions-and-direct-downloads-on-github/
+
+
+E.  Aliases so you don't need to remember as many switches and need to type less
+  
+  
+  1)  For sure keep these around in your ~/.bashrc
+    
+    # git stuff
+    # Git Root:  Go to the root of the project directory
+    alias gis="git status"
+    alias glg="git log --branches --tags --graph --oneline --decorate"
+
+
+  2)  I only rarely use these ones and always forget I have them
+    
+    alias ga="git add"
+    alias gcm="git commit -m"
+    alias gr='cd "$(git rev-parse --show-toplevel)"'
+    alias gpl='git pull origin'
+    alias gps='git push origin'
+    alias gsnm='git branch --no-merged'
+
+    alias gdf="git diff --color"
+    alias gdfh="git diff --color HEAD"
+
+
 
 
 
