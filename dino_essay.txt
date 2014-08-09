@@ -2,3 +2,36 @@
 Dino's are very big, tall beings. 
 
 
+
+
+
+1)  Saving/ Record making
+
+$  git init
+
+$  git add .
+$  git commit -m "this is how to save"
+
+
+2)  Observation
+
+$  git status
+$  git log
+$  git diff HEAD --color
+
+
+
+3)  Remote Commands
+
+$  git clone https://github.com/TheNotary/webAudioApiForDesigners.git
+
+# initialize a place to upload stuff if you want to share it
+$  git remote add origin git@github.com:TheNotary/dino_essay.git
+$  git push -u origin master
+
+
+$  git push
+$  git pull
+
+
+
